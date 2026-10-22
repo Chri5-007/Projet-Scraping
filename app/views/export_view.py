@@ -3,16 +3,25 @@ from pathlib import Path
 
 from config import EXPORT_DIR
 
-
 def exporter_csv(produits, nom="produits.csv", dossier=EXPORT_DIR):
     dossier = Path(dossier)
     dossier.mkdir(parents=True, exist_ok=True)
     chemin = dossier / nom
+    produits_tries = sorted(
+        produits,
+        key=lambda p: (p.categorie or "", p.prix if p.prix is not None else float("inf")),
+    )
     with open(chemin, "w", newline="", encoding="utf-8-sig") as f:
         writer = csv.writer(f, delimiter=";")
-        writer.writerow(["titre", "prix", "image_url", "url", "categorie"])
-        for p in produits:
-            writer.writerow([p.titre, p.prix, p.image_url, p.url, p.categorie])
+        writer.writerow(["categorie", "prix", "titre", "url", "image_url"])
+        for p in produits_tries:
+            writer.writerow([
+                p.categorie,
+                f"{p.prix:.2f}".replace(".", ",") if p.prix is not None else "",
+                p.titre,
+                p.url,
+                p.image_url,
+            ])
     return chemin
 
 
