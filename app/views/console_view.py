@@ -41,18 +41,6 @@ def afficher_erreur(message):
     print(Fore.RED + Style.BRIGHT + f"{ICONES['erreur']} " + message + Style.RESET_ALL)
 
 
-def afficher_statistiques_titre():
-    print(Fore.CYAN + Style.BRIGHT + f"\n{ICONES['stats']} Statistiques" + Style.RESET_ALL)
-
-
-
-
-
-
-
-
-
-
 def afficher_produits(produits, limite=5):
     print(f"\n{len(produits)} produits enregistrés")
     for p in produits[:limite]:
@@ -61,7 +49,7 @@ def afficher_produits(produits, limite=5):
 
 
 def afficher_statistiques(stats):
-    print("\nStatistiques")
+    print(Fore.CYAN + Style.BRIGHT + f"\n{ICONES['stats']} Statistiques" + Style.RESET_ALL)
     moyenne = stats["moyenne"]
     maximum = stats["maximum"]
     print(f"Prix moyen : {moyenne:.2f}" if moyenne is not None else "Prix moyen : aucune donnée")
