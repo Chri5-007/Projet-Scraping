@@ -51,5 +51,3 @@ Les réglages sont dans `config.py` :
 | `HEADLESS`                           | `True` pour lancer Chrome sans fenêtre                         |
 | `DELAI_ENTRE_PAGES`, `DELAI_LECTURE` | Pauses aléatoires, en secondes                                 |
 | `USER_AGENT`                         | Identification du programme                                    |
-
-## Structure
