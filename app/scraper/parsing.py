@@ -6,7 +6,7 @@ from app.models.produit import Produit
 
 SEL_CARTE = "div[data-component-type='s-search-result']"
 SEL_TITRE = "h2 span"
-SEL_LIEN = "h2 a"
+SEL_LIEN =  "div[data-cy='title-recipe'] a"
 SEL_PRIX = "span.a-price span.a-offscreen"
 SEL_IMAGE = "img.s-image"
 
